@@ -98,6 +98,10 @@
   .about-photo::before{content:"";position:absolute;inset:-2px;border-radius:14px;background:var(--ai);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:2px}
   .about-photo img{width:100%;display:block;border-radius:14px}
   .ai-text{font-weight:800}
+  .highlight-blue {
+  font-weight: 800;
+  color: #7aa2ff;
+}  
 
   /* TYPEWRITER flair */
   .typer{
@@ -298,90 +302,118 @@
     </div>
   </div>
 
-  <!-- ABOUT -->
-  <section class="panel scene sheen" data-theme="about" id="about">
-    <div class="hero-bg" aria-hidden="true">f</div>
-    <div class="inner about-grid" data-reveal>
-      <div>
-        <h1>Hello! I’m Jia Yao.</h1>
-        <p class="lead" style="margin-bottom:8px">I help teams <b id="typer" class="typer"></b> projects — on time, with zero drama.</p>
-        <p class="lead">
-          6+ years across security operations and operations management (2+ years). Former Singapore Police Force (Special Operations Command). Now Operations Manager at Health Sciences Authority whilst studying NTU Computing (CyberSec Spec). Full-stack fundamentals + databases; specialising in cybersecurity GRC. Jovial, cheerful, outgoing teammate. Pursuing CompTIA Security+; planning ISO 27001 LI & ITIL.
-        </p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 22px">
-          <a class="btn" href="resume.pdf" download>⬇️ Download CV</a>
-          <a class="btn" href="mailto:lohjiayao@gmail.com">✉️ Email</a>
-          <a class="btn btn-whatsapp" href="https://wa.me/6596383359" target="_blank" rel="noopener">WhatsApp me</a>
-        </div>
-        <div class="strip">
-          <div class="stat"><b data-target="6" data-suffix="+ years">6+ yrs</b><br>Work experience</div>
-          <div class="stat"><b data-target="2" data-suffix="+ years">2+ yrs</b><br>Ops management</div>
-          <div class="stat"><b>SPF (SOC)</b><br>Security Ops background</div>
-          <div class="stat"><b>NTU</b><br>Computing Student</div>
-        </div>
+<!-- ABOUT -->
+<section class="panel scene sheen" data-theme="about" id="about">
+  <div class="hero-bg" aria-hidden="true">f</div>
+  <div class="inner about-grid" data-reveal>
+    <div>
+      <h1>Hello! I’m Jia Yao.</h1>
+      <p class="lead" style="margin-bottom:8px">
+        I help teams <b id="typer" class="typer"></b> projects — on time, with zero drama.
+      </p>
+
+      <!-- Main About paragraph -->
+      <p class="lead">
+        6+ years across security operations and operations management (2+ years). Former Singapore Police Force (Special Operations Command). Now Operations Manager at Health Sciences Authority whilst studying NTU Computing (CyberSec Spec). Full-stack fundamentals + databases; specialising in cybersecurity GRC. Jovial, cheerful, outgoing teammate. Pursuing CompTIA Security+; planning ISO 27001 LI & ITIL.
+      </p>
+
+      <!-- New paragraph: Personal and technical growth -->
+      <p class="lead">
+        Fast-learning and adaptable professional with strong initiative and technical curiosity. Highly motivated to enhance operational efficiency through automation, data-driven insights, and applied self-taugh technical knowledge (Python, VBA, workflow automation). Proven track record of constantly seeking opportunities to optimise processes and improve team performance.
+      </p>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 22px">
+        <a class="btn" href="resume.pdf" download>⬇️ Download CV</a>
+        <a class="btn" href="mailto:lohjiayao@gmail.com">✉️ Email</a>
+        <a class="btn btn-whatsapp" href="https://wa.me/6596383359" target="_blank" rel="noopener">WhatsApp me</a>
       </div>
-      <div class="about-photo"><img src="profile.jpg" alt="Photo of Jia Yao"></div>
+
+      <div class="strip">
+        <div class="stat"><b data-target="6" data-suffix="+ years">6+ yrs</b><br>Work experience</div>
+        <div class="stat"><b data-target="2" data-suffix="+ years">2+ yrs</b><br>Ops management</div>
+        <div class="stat"><b>SPF (SOC)</b><br>Security Ops background</div>
+        <div class="stat"><b>NTU</b><br>Computing Student</div>
+      </div>
     </div>
-  </section>
+    <div class="about-photo"><img src="profile.jpg" alt="Photo of Jia Yao"></div>
+  </div>
+</section>
 
   <div class="divider" aria-hidden="true"></div>
 
-  <!-- EXPERIENCE -->
-  <section class="panel scene sheen" data-theme="experience" id="experience">
-    <div class="inner" data-reveal>
-      <h2>Professional Experience</h2>
-      <div class="timeframe" id="timeline">
-        <div class="time-fill" id="timeFill"></div>
-        <div class="time-halo" id="timeHalo"></div>
+<!-- EXPERIENCE -->
+<section class="panel scene sheen" data-theme="experience" id="experience">
+  <div class="inner" data-reveal>
+    <h2>Professional Experience</h2>
+    <div class="timeframe" id="timeline">
+      <div class="time-fill" id="timeFill"></div>
+      <div class="time-halo" id="timeHalo"></div>
 
-        <div class="role"><div class="bullet"></div>
-          <h3>Operations Manager — Health Sciences Authority (via WSH Experts)</h3>
-          <small>Jul 2025 – Present</small>
-          <div class="details"><ul>
-            <li>Direct day-to-day ground operations across HSA facilities.</li>
-            <li>Coordinate enforcement actions, audits and compliance tracking.</li>
-            <li>Own incident reporting, escalation and SOP updates.</li>
-          </ul></div>
-          <span class="toggle"><span class="chev">▾</span> View more details</span>
+      <!-- HSA -->
+      <div class="role"><div class="bullet"></div>
+        <h3>Operations Manager — Health Sciences Authority</h3>
+        <small>Jul 2025 – Present</small>
+        <div class="details">
+          <ul>
+            <li><b class="highlight-blue">Leading a pilot project</b> to migrate internal data tracking and reporting workflows to a <b class="highlight-blue">cloud-based architecture</b> leveraging Microsoft 365 and SharePoint Online , improving data accessibility, version control, and collaborative analytics across teams.</li>
+            <li><b class="highlight-blue">Developed automated dashboards and statistical tracking tools</b> using Python, VBA, and Power Automate — integrating cloud storage and data visualization to enhance workflow efficiency and reporting accuracy.</li>
+            <li>Direct <b class="highlight-blue">day-to-day ground operations</b> across HSA facilities and ensure compliance, safety, and continuity.</li>
+            <li>Coordinate <b class="highlight-blue">enforcement actions, audits, and compliance tracking</b> through digital workflow systems.</li>
+            <li>Own <b class="highlight-blue">incident reporting, escalation pipelines</b>, and <b class="highlight-blue">SOP updates</b> to align with operational standards.</li>
+          </ul>
         </div>
+        <span class="toggle"><span class="chev">▾</span> View more details</span>
+      </div>
 
-        <div class="role"><div class="bullet"></div>
-          <h3>IT Project Consultant — Shipco Transport</h3>
-          <small>July 2024 – Feb 2025</small>
-          <div class="details"><ul>
-            <li>Automated workflows with <b>Excel VBA</b> + <b>Power Automate</b>, improving team efficiency by ~45%.</li>
-            <li>Prototyped web plugins; pitched pragmatic roadmap to stakeholders.</li>
-            <li>Partnered across Sales/Ops/Finance to map pains and ship quick wins.</li>
-          </ul></div>
-          <span class="toggle"><span class="chev">▾</span> View more details</span>
+      <!-- SHIPCO -->
+      <div class="role"><div class="bullet"></div>
+        <h3>IT Project Consultant — Shipco Transport</h3>
+        <small>Jul 2024 – Feb 2025</small>
+        <div class="details">
+          <ul>
+            <li>Automated workflows using <b class="highlight-blue">Excel VBA</b> and <b class="highlight-blue">Power Automate</b>, improving cross-department productivity by ~45%.</li>
+            <li>Prototyped <b class="highlight-blue">web-based plugins</b> and proposed a phased <b class="highlight-blue">digital transformation roadmap</b> to stakeholders.</li>
+            <li>Collaborated across Sales, Ops, and Finance to identify inefficiencies and deploy <b class="highlight-blue">low-code automation solutions</b>.</li>
+            <li>Supported deployment and testing of <b class="highlight-blue">cloud-integrated automation workflows</b> with Microsoft 365, Power Automate, and SharePoint Online, improving team collaboration and data accessibility.</li>
+            <li>Developed a <b class="highlight-blue">foundational understanding of cloud service models</b> (IaaS, PaaS, SaaS) and applied them to workflow optimisation and system migration planning.</li>
+          </ul>
         </div>
+        <span class="toggle"><span class="chev">▾</span> View more details</span>
+      </div>
 
-        <div class="role"><div class="bullet"></div>
-          <h3>Duty Ops & Security Officer — SPF, SOC</h3>
-          <small>Jun 2022 – May 2024</small>
-          <div class="details"><ul>
-            <li>Oversaw daily SOC deployments and base security planning.</li>
-            <li>Directed risk assessments for national events (F1, NYE).</li>
-            <li>Coordinated multi-division incident response operations.</li>
-          </ul></div>
-          <span class="toggle"><span class="chev">▾</span> View more details</span>
+      <!-- SPF (SOC) -->
+      <div class="role"><div class="bullet"></div>
+        <h3>Duty Operations & Security Officer — Singapore Police Force, SOC</h3>
+        <small>Jun 2022 – May 2024</small>
+        <div class="details">
+          <ul>
+            <li>Oversaw daily <b class="highlight-blue">security operations centre (SOC)</b> deployments and base security planning.</li>
+            <li>Directed <b class="highlight-blue">risk assessments and incident coordination</b> for large-scale national events (e.g., F1, NYE).</li>
+            <li>Digitised and standardised internal reporting templates to improve <b class="highlight-blue">incident data tracking and analytics.</b></li>
+          </ul>
         </div>
+        <span class="toggle"><span class="chev">▾</span> View more details</span>
+      </div>
 
-        <div class="role"><div class="bullet"></div>
-          <h3>Armed Strike Team Operator — SPF, SOC PTU</h3>
-          <small>Dec 2018 – May 2019</small>
-          <div class="details"><ul>
-            <li>High-risk tactical deployments (riot control, incident response).</li>
-            <li>Digitised equipment checklists; reduced errors and saved man-hours.</li>
-            <li>Improved SOPs and training to raise readiness.</li>
-          </ul></div>
-          <span class="toggle"><span class="chev">▾</span> View more details</span>
+      <!-- SPF (PTU) -->
+      <div class="role"><div class="bullet"></div>
+        <h3>Armed Strike Team Operator — Singapore Police Force, SOC PTU</h3>
+        <small>Dec 2018 – May 2019</small>
+        <div class="details">
+          <ul>
+            <li>Executed <b class="highlight-blue">high-risk tactical deployments</b> involving crowd control and critical incident response.</li>
+            <li>Digitised <b class="highlight-blue">equipment and readiness checklists</b> using spreadsheet automation, reducing administrative errors.</li>
+            <li>Enhanced SOP documentation and training processes to improve <b class="highlight-blue">unit operational efficiency.</b></li>
+          </ul>
         </div>
+        <span class="toggle"><span class="chev">▾</span> View more details</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="divider" aria-hidden="true"></div>
+<div class="divider" aria-hidden="true"></div>
+
 
   <!-- PROJECTS -->
   <section class="panel scene sheen" data-theme="projects" id="projects">
@@ -571,7 +603,7 @@
         <div class="layer"></div><div class="vibe"></div>
         <div class="content">
           <h1>Love for Gaming 🎮</h1>
-          <p class="lead">Have a look at a conveyor of favorites !</p>
+          <p class="lead">Have a look at a conveyor of my favorites !</p>
 
           <!-- <div class="spotlight"><img src="gaming.gif" alt="Gaming spotlight"></div> --> 
 
