@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Loh Jia Yao — Resume</title>
-<meta name="description" content="Interactive resume for Loh Jia Yao — Operations & Security Manager, NTU Cybersecurity undergraduate." />
+<meta name="description" content="Interactive resume for Loh Jia Yao — Cybersecurity Customer Success, Security Operations, and Service Delivery professional." />
 <style>
   :root{
     --bg:#0b0c10; --ink:#e8ecf3; --muted:#96a0b5;
@@ -98,10 +98,7 @@
   .about-photo::before{content:"";position:absolute;inset:-2px;border-radius:14px;background:var(--ai);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:2px}
   .about-photo img{width:100%;display:block;border-radius:14px}
   .ai-text{font-weight:800}
-  .highlight-blue {
-  font-weight: 800;
-  color: #7aa2ff;
-}  
+  .highlight-blue {font-weight: 800;color: #7aa2ff;}  
 
   /* TYPEWRITER flair */
   .typer{
@@ -113,11 +110,60 @@
   }
   @keyframes caret { 50%{border-color:transparent} }
 
-  /* STATS */
-  .strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:24px}
-  .stat{position:relative;padding:16px;border:2px solid transparent;border-radius:14px;background:rgba(255,255,255,.03);text-align:center;min-height:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform .22s ease,box-shadow .22s ease}
-  .stat::before{content:"";position:absolute;inset:-2px;border-radius:14px;background:var(--ai);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:2px}
-  .stat:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 18px 50px rgba(0,0,0,.35)}
+  /* COMPANY LOGO STRIP */
+  .company-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+  @media(max-width:900px){.company-strip{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.company-strip{grid-template-columns:1fr}}
+  .company-card{
+    position:relative;
+    min-height:150px;
+    padding:18px 14px;
+    border:2px solid transparent;
+    border-radius:18px;
+    background:rgba(255,255,255,.035);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    text-align:center;
+    overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .company-card::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:18px;
+    background:var(--ai);
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    padding:2px;
+  }
+  .company-card::after{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    border-radius:999px;
+    background:rgba(122,162,255,.12);
+    filter:blur(22px);
+    transform:translateY(30px) scale(.9);
+    opacity:.65;
+    transition:transform .25s ease, opacity .25s ease;
+    z-index:0;
+  }
+  .company-card:hover{transform:translateY(-7px) scale(1.02);box-shadow:0 22px 70px rgba(0,0,0,.42);background:rgba(255,255,255,.055)}
+  .company-card:hover::after{transform:translateY(10px) scale(1.15);opacity:1}
+  .company-logo-wrap{width:78px;height:78px;border-radius:18px;background:rgba(255,255,255,.08);display:grid;place-items:center;position:relative;z-index:1;animation:logoFloat 4.5s ease-in-out infinite}
+  .company-card:nth-child(2) .company-logo-wrap{animation-delay:.35s}
+  .company-card:nth-child(3) .company-logo-wrap{animation-delay:.7s}
+  .company-card:nth-child(4) .company-logo-wrap{animation-delay:1.05s}
+  .company-logo-wrap img{max-width:76%;max-height:76%;object-fit:contain;display:block}
+  .company-role{position:relative;z-index:1;color:var(--ink);font-weight:800;line-height:1.25}
+  .company-name{position:relative;z-index:1;color:var(--muted);font-size:13px;letter-spacing:.4px;text-transform:uppercase}
+  @keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
   /* ===================== DIVIDERS ===================== */
   .divider{
@@ -159,7 +205,7 @@
   .toggle .chev{transition:transform .25s ease}
   .role.open .chev{transform:rotate(180deg)}
   .details{max-height:0;overflow:hidden;opacity:.75;transition:max-height .35s ease,opacity .25s ease;margin-top:8px;color:var(--muted)}
-  .role.open .details{max-height:520px;opacity:1}
+  .role.open .details{max-height:620px;opacity:1}
 
   /* PROJECTS */
   .tabs{display:flex;gap:10px;align-items:center;position:relative;margin:10px 0 16px;flex-wrap:wrap}
@@ -190,20 +236,12 @@
 
   /* ===================== FUN — IMMERSIVE WORLDS (SCOPED) ===================== */
   #fun{scroll-snap-type:y mandatory}
-  #fun .world{
-    position:relative;
-    min-height:100vh; /* fill screen */
-    display:grid;
-    place-items:center;
-    overflow:hidden;
-    scroll-snap-align:start;
-  }
+  #fun .world{position:relative;min-height:100vh;display:grid;place-items:center;overflow:hidden;scroll-snap-align:start}
   #fun .layer{position:absolute;inset:-20%;background-position:center;background-size:cover;filter:brightness(.9) saturate(1.05);opacity:.75;transform:translateZ(0)}
   #fun .vibe{position:absolute;inset:0;background:radial-gradient(800px 400px at 10% 20%,rgba(122,162,255,.18),transparent 60%),radial-gradient(800px 400px at 90% 70%,rgba(236,72,153,.16),transparent 60%);mix-blend-mode:screen;pointer-events:none}
   #fun .content{position:relative;z-index:2;text-align:center;padding:44px 18px;max-width:1100px}
   #fun .world::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(to bottom,transparent,#0b0c10 85%);pointer-events:none}
 
-  /* Wife & I */
   #fun .wife .layer{background-image:linear-gradient(#0006,#0000),url('us1.jpg')}
   #fun .carousel{position:relative;height:320px;border-radius:14px;overflow:hidden;margin:10px auto 0;max-width:900px}
   #fun .carousel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .8s ease,transform 6s ease}
@@ -211,79 +249,42 @@
   #fun .controls{display:flex;align-items:center;gap:12px;margin:14px auto 12px;max-width:900px}
   #fun .bar{height:8px;flex:1;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;position:relative}
   #fun .bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#7aa2ff,#67e8f9,#ec4899)}
-  #fun .bar::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 20px rgba(122,162,255,.4),0 0 36px rgba(103,232,249,.28),0 0 60px rgba(236,72,153,.18);animation:pulseGlow 1.8s ease-in-out infinite;pointer-events:none}
-  @keyframes pulseGlow{0%,100%{opacity:.7}50%{opacity:1}}
 
-  /* Cars scrapbook */
   #fun .cars .layer{ background:#0a0a0a; }
   #fun .car-wall{ display:flex; flex-wrap:wrap; gap:28px; justify-content:center; margin-top:28px; }
-  #fun .car-polaroid{
-    position:relative; width:260px; padding:14px 14px 50px; border-radius:16px; background:#0e1016;
-    border:2px solid transparent; transform:rotate(var(--rot,0deg));
-    transition:transform .25s ease, box-shadow .25s ease;
-  }
-  #fun .car-polaroid::before{
-    content:""; position:absolute; inset:-2px; border-radius:18px; background:var(--ai);
-    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-    -webkit-mask-composite:xor; mask-composite:exclude; padding:2px;
-  }
+  #fun .car-polaroid{position:relative; width:260px; padding:14px 14px 50px; border-radius:16px; background:#0e1016;border:2px solid transparent; transform:rotate(var(--rot,0deg));transition:transform .25s ease, box-shadow .25s ease;}
+  #fun .car-polaroid::before{content:""; position:absolute; inset:-2px; border-radius:18px; background:var(--ai);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor; mask-composite:exclude; padding:2px;}
   #fun .car-polaroid:hover{ transform:rotate(var(--rot,0deg)) translateY(-6px) scale(1.03); box-shadow:0 20px 60px rgba(0,0,0,.5); }
   #fun .car-polaroid img{ width:100%; height:180px; object-fit:cover; border-radius:12px; }
   #fun .car-polaroid figcaption{ position:absolute; left:0; right:0; bottom:12px; text-align:center; color:#d7def4; font-size:14px; }
   #fun .tape{ position:absolute; top:-12px; left:50%; transform:translateX(-50%) rotate(var(--trot,-3deg)); width:100px; height:24px; background:rgba(255,255,255,.08); border-radius:4px; box-shadow:0 6px 14px rgba(0,0,0,.3); }
 
-  /* Gaming — conveyor + spotlight */
   #fun .gaming .layer{ background-image:linear-gradient(#0008,#0000),url('game1.png') }
   #fun .spotlight{ display:grid; place-items:center; margin:6px auto 12px; max-width:620px }
   #fun .spotlight img{ width:100%; border-radius:14px; box-shadow:0 20px 80px rgba(0,0,0,.55) }
-  #fun .belt-wrap{
-    position:relative; overflow:hidden; margin:12px auto 0; max-width:1100px;
-    -webkit-mask-image:linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-            mask-image:linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-  }
-  #fun .belt{
-    display:flex; gap:44px; align-items:center; padding:0; will-change:transform;
-    animation:marquee-ltr var(--dur,22s) linear infinite;
-  }
-  @keyframes marquee-ltr{
-    from{ transform:translate3d(-50%,0,0); }
-    to  { transform:translate3d(0,0,0);     }
-  }
-  #fun .logo{
-    flex:0 0 140px; height:140px; display:grid; place-items:center;
-    background:#0f1320; border:1px solid #20263a; border-radius:14px; overflow:hidden;
-    opacity:1; transition:transform .15s ease, opacity .2s ease;
-  }
+  #fun .belt-wrap{position:relative; overflow:hidden; margin:12px auto 0; max-width:1100px;-webkit-mask-image:linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);mask-image:linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);}
+  #fun .belt{display:flex; gap:44px; align-items:center; padding:0; will-change:transform;animation:marquee-ltr var(--dur,22s) linear infinite;}
+  @keyframes marquee-ltr{from{ transform:translate3d(-50%,0,0); }to{ transform:translate3d(0,0,0); }}
+  #fun .logo{flex:0 0 140px; height:140px; display:grid; place-items:center;background:#0f1320; border:1px solid #20263a; border-radius:14px; overflow:hidden;opacity:1; transition:transform .15s ease, opacity .2s ease;}
   #fun .logo img{ max-width:92%; max-height:92%; display:block; opacity:1 !important; filter:none !important; mix-blend-mode:normal !important; }
   #fun .logo:hover{ transform:translateY(-4px) scale(1.05); }
 
-  /* Badminton + Property */
   #fun .badminton .layer{background-image:linear-gradient(#0008,#0000),url('badminton.jpg')}
   #fun .film .layer{background:radial-gradient(1200px 600px at 50% 15%,#111522,#0b0c10)}
   #fun .media{margin-top:14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
   #fun .card{background:rgba(255,255,255,.06);border-radius:12px;overflow:hidden}
   #fun .card img,#fun .card video{width:100%;height:160px;object-fit:cover;display:block}
-
   #fun .filmstrip{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:12px}
   #fun .clip{position:relative;overflow:hidden;border-radius:16px;border:2px solid transparent;background:#0f1320}
-  #fun .clip::before{content:"";position:absolute;inset:-2px;border-radius:16px;background:var(--ai);
-    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-    -webkit-mask-composite:xor;mask-composite:exclude;padding:2px}
+  #fun .clip::before{content:"";position:absolute;inset:-2px;border-radius:16px;background:var(--ai);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:2px}
   #fun .clip video{width:100%;height:220px;object-fit:cover;display:block}
   #fun .clip span{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.45);padding:6px 10px;border-radius:8px;font-size:13px}
   #fun .clip:hover{transform:scale(1.03);box-shadow:0 22px 70px rgba(0,0,0,.55)}
 
-  /* Footer */
   footer{display:flex;align-items:center;justify-content:center;gap:10px;padding:26px 14px 40px;color:var(--muted)}
   footer .mug{display:inline-block;filter:var(--glow);animation:steam 3s ease-in-out infinite}
   @keyframes steam{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-
-  /* Override .inner inside immersive worlds so they go full width */
-#fun > .inner {
-  max-width: none;
-  padding: 0;
-  margin: 0;
-}
+  #fun > .inner {max-width: none;padding: 0;margin: 0;}
 </style>
 </head>
 <body>
@@ -304,22 +305,20 @@
 
 <!-- ABOUT -->
 <section class="panel scene sheen" data-theme="about" id="about">
-  <div class="hero-bg" aria-hidden="true">f</div>
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="inner about-grid" data-reveal>
     <div>
       <h1>Hello! I’m Jia Yao.</h1>
       <p class="lead" style="margin-bottom:8px">
-        I help teams <b id="typer" class="typer"></b> projects — on time, with zero drama.
+        I help teams <b id="typer" class="typer"></b> cybersecurity services — with clarity, ownership, and zero drama.
       </p>
 
-      <!-- Main About paragraph -->
       <p class="lead">
-        6+ years across security operations and operations management. Now Operations Manager at Health Sciences Authority whilst studying NTU Computing (CyberSec Spec). Full-stack fundamentals + databases; specialising in cybersecurity GRC. Jovial, cheerful, outgoing teammate. Obtained "Advanced Specialist in Full Stack Development" Certificate by NTU in 2026.
+        Cybersecurity Customer Success and Security Operations professional with experience across managed security services, incident coordination, service delivery, stakeholder engagement, and operational risk management. I currently support enterprise cybersecurity clients by coordinating between customers, SOC/MDR analysts, engineers, and internal teams to drive clear follow-ups, smoother escalations, stronger reporting, and continuous service improvement.
       </p>
 
-      <!-- New paragraph: Personal and technical growth -->
       <p class="lead">
-        Fast-learning and adaptable professional with strong initiative and technical curiosity. Highly motivated to enhance operational efficiency through automation, data-driven insights, and applied self-taugh technical knowledge (Python, VBA, workflow automation). Proven track record of constantly seeking opportunities to optimise processes and improve team performance.
+        My background combines high-accountability security operations from the Singapore Police Force, regulatory operations with HSA, digital workflow automation at Shipco Transport, and cybersecurity service delivery with Ensign InfoSecurity. I am also pursuing NTU Computing with a Cybersecurity specialisation, and I actively use Python, Excel/VBA, Power Query, SIEM workflows, XSOAR, Splunk, CrowdStrike, and AI-assisted automation to improve reporting, visibility, and operational efficiency.
       </p>
 
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 22px">
@@ -328,11 +327,27 @@
         <a class="btn btn-whatsapp" href="https://wa.me/6596383359" target="_blank" rel="noopener">WhatsApp me</a>
       </div>
 
-      <div class="strip">
-        <div class="stat"><b data-target="6" data-suffix="+ years">6+ yrs</b><br>Work experience</div>
-        <div class="stat"><b data-target="2" data-suffix="+ years">2+ yrs</b><br>Ops management</div>
-        <div class="stat"><b>SPF(Special Opeations Command)</b><br>Special Ops & Ops Management background</div>
-        <div class="stat"><b>NTU</b><br>Computing Student</div>
+      <div class="company-strip" aria-label="Companies Jia Yao has worked for">
+        <div class="company-card">
+          <div class="company-logo-wrap"><img src="spf-logo.png" alt="Singapore Police Force logo"></div>
+          <div class="company-role">SOC Operations Management</div>
+          <div class="company-name">Singapore Police Force</div>
+        </div>
+        <div class="company-card">
+          <div class="company-logo-wrap"><img src="shipco-logo.png" alt="Shipco Transport logo"></div>
+          <div class="company-role">Digital Operations &amp; Specialist</div>
+          <div class="company-name">Shipco Transport</div>
+        </div>
+        <div class="company-card">
+          <div class="company-logo-wrap"><img src="hsa-logo.png" alt="Health Sciences Authority logo"></div>
+          <div class="company-role">Operations Manager</div>
+          <div class="company-name">Health Sciences Authority</div>
+        </div>
+        <div class="company-card">
+          <div class="company-logo-wrap"><img src="ensign-logo.png" alt="Ensign InfoSecurity logo"></div>
+          <div class="company-role">Client Success Manager</div>
+          <div class="company-name">Ensign InfoSecurity</div>
+        </div>
       </div>
     </div>
     <div class="about-photo"><img src="profile.jpg" alt="Photo of Jia Yao"></div>
@@ -349,16 +364,31 @@
       <div class="time-fill" id="timeFill"></div>
       <div class="time-halo" id="timeHalo"></div>
 
+  <!-- ENSIGN -->
+  <div class="role"><div class="bullet"></div>
+    <h3>Client Success Manager — Ensign InfoSecurity</h3>
+    <small>Mar 2026 – Present</small>
+    <div class="details">
+      <ul>
+        <li>Manage <b class="highlight-blue">cybersecurity customer success and service delivery activities</b> for enterprise clients, supporting engagement coordination, service reviews, reporting, and operational follow-ups.</li>
+        <li>Work closely with <b class="highlight-blue">SOC, MDR, threat analysts, engineers, and client security teams</b> to coordinate incidents, escalations, service requests, purple teaming follow-ups, and operational updates.</li>
+        <li>Support security operations reporting and client discussions using workflows involving <b class="highlight-blue">SIEM, XSOAR, Splunk, CrowdStrike, MDR operations, and managed security services</b>.</li>
+        <li>Drive <b class="highlight-blue">process improvement and reporting automation</b> using Python, Excel, Power Query, and AI-assisted workflows to improve visibility, efficiency, and stakeholder communication.</li>
+      </ul>
+    </div>
+    <span class="toggle"><span class="chev">▾</span> View more details</span>
+  </div>
+
   <!-- HSA -->
   <div class="role"><div class="bullet"></div>
     <h3>Operations Manager — Health Sciences Authority</h3>
-    <small>June 2025 – Present</small>
+    <small>June 2025 – Feb 2026</small>
     <div class="details">
       <ul>
-        <li>Coordinate <b class="highlight-blue">multi-stakeholder regulatory and operational activities</b>, ensuring delivery in alignment with compliance, governance, and operational requirements.</li>
-        <li>Support <b class="highlight-blue">audit and compliance readiness</b> by maintaining accurate operational records, documentation baselines, and reporting visibility for internal and regulatory review.</li>
-        <li>Manage <b class="highlight-blue">incident reporting and escalation coordination</b> to ensure timely response, accurate documentation, and cross-team situational awareness.</li>
-        <li>Lead <b class="highlight-blue">process improvement and digital workflow initiatives</b> to improve operational visibility, data governance, and reporting efficiency across enforcement operations.</li>
+        <li>Coordinated <b class="highlight-blue">multi-stakeholder regulatory and operational activities</b>, ensuring delivery in alignment with compliance, governance, and operational requirements.</li>
+        <li>Supported <b class="highlight-blue">audit and compliance readiness</b> by maintaining accurate operational records, documentation baselines, and reporting visibility for internal and regulatory review.</li>
+        <li>Managed <b class="highlight-blue">incident reporting and escalation coordination</b> to ensure timely response, accurate documentation, and cross-team situational awareness.</li>
+        <li>Led <b class="highlight-blue">process improvement and digital workflow initiatives</b> to improve operational visibility, data governance, and reporting efficiency across enforcement operations.</li>
       </ul>
     </div>
     <span class="toggle"><span class="chev">▾</span> View more details</span>
@@ -366,7 +396,7 @@
       
   <!-- SHIPCO -->
   <div class="role"><div class="bullet"></div>
-    <h3>Digital Operations & Solutions Specialist — Shipco Transport</h3>
+    <h3>Digital Operations &amp; Solutions Specialist — Shipco Transport</h3>
     <small>June 2024 – Apr 2025</small>
     <div class="details">
       <ul>
@@ -381,12 +411,12 @@
 
   <!-- SPF (SOC) -->
   <div class="role"><div class="bullet"></div>
-    <h3>Security Operations & Incident Management Officer — Singapore Police Force, Special Operations Command</h3>
+    <h3>Security Operations &amp; Incident Management Officer — Singapore Police Force, Special Operations Command</h3>
     <small>Dec 2020 – May 2024</small>
     <div class="details">
       <ul>
         <li>Oversaw daily <b class="highlight-blue">security operations readiness</b> and operational deployment planning, ensuring compliance with strict operational and governance standards.</li>
-        <li>Conducted <b class="highlight-blue">risk assessments and incident coordination</b> for high-profile national events (e.g., F1, New Year’s Eve), supporting threat mitigation and operational continuity.</li>
+        <li>Conducted <b class="highlight-blue">risk assessments and incident coordination</b> for high-profile national events, supporting threat mitigation and operational continuity.</li>
         <li>Coordinated <b class="highlight-blue">multi-agency incident response operations</b>, ensuring timely escalation, resource mobilisation, and execution aligned to established SOPs.</li>
         <li>Supported <b class="highlight-blue">incident reporting, operational documentation, and post-incident review</b> processes to improve response effectiveness and operational readiness.</li>
       </ul>
@@ -412,7 +442,6 @@
 </section>
 
 <div class="divider" aria-hidden="true"></div>
-
 
   <!-- PROJECTS -->
   <section class="panel scene sheen" data-theme="projects" id="projects">
@@ -490,7 +519,7 @@
           </div>
         </div>
 
-      </div><!-- /panels -->
+      </div>
     </div>
   </section>
 
@@ -507,14 +536,15 @@
           <p><b>Diploma in Mechatronics</b> — Temasek Polytechnic · 2015–2018</p>
         </div>
         <div class="box">
-          <h3>Skills & Competencies</h3>
-          <span class="chip">Python</span><span class="chip">MERN Architecture</span><span class="chip">SIEM Fundamentals</span><span class="chip">Splunk</span>
-          <span class="chip">Project coordination</span><span class="chip">Stakeholder management</span><span class="chip">Security Operations</span>
-          <span class="chip">Full-stack Development</span><span class="chip">Databases</span><span class="chip">Jovial • Cheerful • Outgoing</span>
+          <h3>Skills &amp; Competencies</h3>
+          <span class="chip">Customer Success</span><span class="chip">Service Delivery</span><span class="chip">Security Operations</span><span class="chip">Incident Coordination</span>
+          <span class="chip">SIEM</span><span class="chip">Splunk</span><span class="chip">XSOAR</span><span class="chip">CrowdStrike</span>
+          <span class="chip">Python</span><span class="chip">Excel VBA</span><span class="chip">Power Query</span><span class="chip">AI-assisted Automation</span>
+          <span class="chip">Stakeholder Management</span><span class="chip">Reporting Automation</span><span class="chip">Governance &amp; Risk</span>
         </div>
         <div class="box">
           <h3>Certifications</h3>
-          <div class="step"><div class="ring" style="width:14px;height:14px;border-radius:3px;position:relative"></div><div><b>Advanced Specialist Certificate in Full Stack Development by NTU</b>
+          <div class="step"><div class="ring" style="width:14px;height:14px;border-radius:3px;position:relative"></div><div><b>Advanced Specialist Certificate in Full Stack Development by NTU</b></div></div>
         </div>
       </div>
     </div>
@@ -527,111 +557,56 @@
     <div class="inner" data-reveal>
       <h2>Beyond the Desk</h2>
 
-      <!-- WIFE & I -->
       <section class="world wife" data-speed="0.2">
         <div class="layer"></div><div class="vibe"></div>
         <div class="content">
           <h1>Wife &amp; I — My co-driver in life ❤️</h1>
           <p class="lead">Adventures, music, and late-night drives.</p>
-
           <div class="carousel" id="loveCarousel">
             <img src="us1.jpg" class="active" alt="Wife & I 1">
             <img src="us2.jpg" alt="Wife & I 2">
             <img src="us3.jpg" alt="Wife & I 3">
           </div>
-
           <div class="controls">
             <button class="btn" id="playBtn"><span id="playIcon">▶</span> Play Our Fav Song !</button>
             <div class="bar"><span id="progress"></span></div>
           </div>
-
-          <!-- RESTORED: Honeymoon link -->
           <div class="btn-row">
-            <a class="btn" href="https://www.youtube.com/watch?v=D6KDUNup_dY" target="_blank" rel="noopener">
-              🌴 View our Honeymoon Video ! 🌴
-            </a>
+            <a class="btn" href="https://www.youtube.com/watch?v=D6KDUNup_dY" target="_blank" rel="noopener">🌴 View our Honeymoon Video ! 🌴</a>
           </div>
-
           <audio id="loveAudio" preload="metadata" src="audio.mp3"></audio>
         </div>
       </section>
 
-      <!-- CARS — Scrapbook -->
       <section class="world cars" data-speed="0.2">
         <div class="layer"></div>
         <div class="content">
           <h1>Passion for Cars ~ 🚗</h1>
           <p class="lead">Love to capture photos and appreciating these man-made wonders.</p>
-
           <div class="car-wall">
-            <figure class="car-polaroid" style="--rot:-3deg">
-              <span class="tape"></span>
-              <img src="car1.jpg" alt="Car 1">
-              <figcaption>NickNamed Henry, we miss you !</figcaption>
-            </figure>
-            <figure class="car-polaroid" style="--rot:2deg">
-              <span class="tape"></span>
-              <img src="car2.jpg" alt="Car 2">
-              <figcaption>Angled Shot of an 2019 M5 Competition</figcaption>
-            </figure>
-            <figure class="car-polaroid" style="--rot:-5deg">
-              <span class="tape"></span>
-              <img src="car3.jpg" alt="Car 3">
-              <figcaption>Keisuke , is that you ?!</figcaption>
-            </figure>
-            <figure class="car-polaroid" style="--rot:4deg">
-              <span class="tape"></span>
-              <img src="car4.jpg" alt="Car 4">
-              <figcaption>My first Manual <3</figcaption>
-            </figure>
-            <figure class="car-polaroid" style="--rot:-2deg">
-              <span class="tape"></span>
-              <img src="car5.jpg" alt="Car 5">
-              <figcaption>Timeless machine, the FD2R</figcaption>
-            </figure>
+            <figure class="car-polaroid" style="--rot:-3deg"><span class="tape"></span><img src="car1.jpg" alt="Car 1"><figcaption>NickNamed Henry, we miss you !</figcaption></figure>
+            <figure class="car-polaroid" style="--rot:2deg"><span class="tape"></span><img src="car2.jpg" alt="Car 2"><figcaption>Angled Shot of an 2019 M5 Competition</figcaption></figure>
+            <figure class="car-polaroid" style="--rot:-5deg"><span class="tape"></span><img src="car3.jpg" alt="Car 3"><figcaption>Keisuke , is that you ?!</figcaption></figure>
+            <figure class="car-polaroid" style="--rot:4deg"><span class="tape"></span><img src="car4.jpg" alt="Car 4"><figcaption>My first Manual &lt;3</figcaption></figure>
+            <figure class="car-polaroid" style="--rot:-2deg"><span class="tape"></span><img src="car5.jpg" alt="Car 5"><figcaption>Timeless machine, the FD2R</figcaption></figure>
           </div>
         </div>
       </section>
 
-      <!-- GAMING -->
       <section class="world gaming" data-speed="0.22">
         <div class="layer"></div><div class="vibe"></div>
         <div class="content">
           <h1>Love for Gaming 🎮</h1>
           <p class="lead">Have a look at a conveyor of my favorites !</p>
-
-          <!-- <div class="spotlight"><img src="gaming.gif" alt="Gaming spotlight"></div> --> 
-
           <div class="belt-wrap">
             <div class="belt" id="logoBelt">
-              <!-- A -->
-              <div class="logo"><img src="logo1.png"  alt=""></div>
-              <div class="logo"><img src="logo2.png"  alt=""></div>
-              <div class="logo"><img src="logo3.png"  alt=""></div>
-              <div class="logo"><img src="logo4.png"  alt=""></div>
-              <div class="logo"><img src="logo5.png"  alt=""></div>
-              <div class="logo"><img src="logo6.png"  alt=""></div>
-              <div class="logo"><img src="logo7.png"  alt=""></div>
-              <div class="logo"><img src="logo8.png"  alt=""></div>
-              <div class="logo"><img src="logo9.png"  alt=""></div>
-              <div class="logo"><img src="logo10.png" alt=""></div>
-              <!-- B (duplicate of A) -->
-              <div class="logo"><img src="logo1.png"  alt=""></div>
-              <div class="logo"><img src="logo2.png"  alt=""></div>
-              <div class="logo"><img src="logo3.png"  alt=""></div>
-              <div class="logo"><img src="logo4.png"  alt=""></div>
-              <div class="logo"><img src="logo5.png"  alt=""></div>
-              <div class="logo"><img src="logo6.png"  alt=""></div>
-              <div class="logo"><img src="logo7.png"  alt=""></div>
-              <div class="logo"><img src="logo8.png"  alt=""></div>
-              <div class="logo"><img src="logo9.png"  alt=""></div>
-              <div class="logo"><img src="logo10.png" alt=""></div>
+              <div class="logo"><img src="logo1.png"  alt=""></div><div class="logo"><img src="logo2.png"  alt=""></div><div class="logo"><img src="logo3.png"  alt=""></div><div class="logo"><img src="logo4.png"  alt=""></div><div class="logo"><img src="logo5.png"  alt=""></div><div class="logo"><img src="logo6.png"  alt=""></div><div class="logo"><img src="logo7.png"  alt=""></div><div class="logo"><img src="logo8.png"  alt=""></div><div class="logo"><img src="logo9.png"  alt=""></div><div class="logo"><img src="logo10.png" alt=""></div>
+              <div class="logo"><img src="logo1.png"  alt=""></div><div class="logo"><img src="logo2.png"  alt=""></div><div class="logo"><img src="logo3.png"  alt=""></div><div class="logo"><img src="logo4.png"  alt=""></div><div class="logo"><img src="logo5.png"  alt=""></div><div class="logo"><img src="logo6.png"  alt=""></div><div class="logo"><img src="logo7.png"  alt=""></div><div class="logo"><img src="logo8.png"  alt=""></div><div class="logo"><img src="logo9.png"  alt=""></div><div class="logo"><img src="logo10.png" alt=""></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- BADMINTON -->
       <section class="world badminton" data-speed="0.18">
         <div class="layer"></div><div class="vibe"></div>
         <div class="content">
@@ -641,7 +616,6 @@
         </div>
       </section>
 
-      <!-- PROPERTY — 3-clip filmstrip -->
       <section class="world film" data-speed="0.2">
         <div class="layer"></div><div class="vibe"></div>
         <div class="content">
@@ -661,7 +635,6 @@
   <footer>© <span id="year"></span> Loh Jia Yao · Built with <span class="mug">❤️</span> + midnight oil</footer>
 
 <script>
-  /* ===== Dynamic spotlight per section (mouse) ===== */
   document.querySelectorAll('.scene').forEach(sec=>{
     sec.addEventListener('pointermove', e=>{
       const r=sec.getBoundingClientRect();
@@ -670,23 +643,20 @@
     });
   });
 
-  /* Strong nav sheen on scroll */
   const nav = document.getElementById('topNav');
   let sweepTO=null;
   window.addEventListener('scroll',()=>{ nav.classList.add('sweep'); clearTimeout(sweepTO); sweepTO=setTimeout(()=>nav.classList.remove('sweep'),420);},{passive:true});
 
-  /* Stage hero entrance */
   window.addEventListener('DOMContentLoaded',()=>{
     const grid=document.querySelector('.about-grid'); if(!grid) return;
     grid.classList.add('ready');
     const kids=[...grid.children], step=180; setTimeout(()=>kids.forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*step)),320);
   });
 
-  /* ===== TYPEWRITER ===== */
   (function(){
     const el = document.getElementById('typer');
     if(!el) return;
-    const words = ["secure", "ship", "scale", "audit", "coordinate"];
+    const words = ["coordinate", "secure", "improve", "automate", "deliver"];
     let wi=0, ci=0, erasing=false;
     const type = ()=>{
       const w = words[wi];
@@ -702,17 +672,6 @@
     type();
   })();
 
-  /* counters */
-  (function(){
-    const nums=[...document.querySelectorAll('.stat b[data-target]')]; if(!nums.length) return;
-    const run=()=>{ nums.forEach(el=>{ const end=+el.dataset.target||0, pref=el.dataset.prefix??"", suf=el.dataset.suffix??""; const t0=performance.now(), dur=700;
-      (function tick(now){ const t=Math.min(1,(now-t0)/dur), v=Math.round(end*t); el.textContent=`${pref}${v}${suf}`; if(t<1) requestAnimationFrame(tick); })(t0);
-    });};
-    const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ setTimeout(run,400); io.disconnect(); }}),{threshold:.4});
-    io.observe(document.getElementById('about'));
-  })();
-
-  /* reveal + stagger */
   (function(){ 
     const R=new IntersectionObserver(entries=>entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); R.unobserve(e.target);} }),{threshold:.15,rootMargin:"0px 0px -12% 0px"});
     document.querySelectorAll('[data-reveal]').forEach(el=>R.observe(el)); 
@@ -721,7 +680,6 @@
   const io2=new IntersectionObserver(entries=>entries.forEach(e=>{ if(e.isIntersecting){ reveal([...e.target.querySelectorAll('.role,.box,.fun-card')]); e.target.classList.add('sweep'); setTimeout(()=>e.target.classList.remove('sweep'),700); io2.unobserve(e.target);} }),{threshold:.2});
   document.querySelectorAll('.timeframe,.mosaic,.fun-zig').forEach(el=>io2.observe(el));
 
-  /* accordion */
   document.querySelectorAll('.toggle').forEach(t=>{
     t.addEventListener('click',()=>{
       const role=t.closest('.role'); role.classList.toggle('open');
@@ -731,7 +689,6 @@
     });
   });
 
-  /* ===== TIMELINE fill ===== */
   (function(){
     const tf = document.getElementById('timeline'); if(!tf) return;
     const fill = document.getElementById('timeFill');
@@ -752,7 +709,6 @@
     window.addEventListener('resize', onScroll);
   })();
 
-  /* tabs */
   (function(){
     const tabs=[...document.querySelectorAll('.tab')];
     const panels=[...document.querySelectorAll('#projects .panelx')];
@@ -766,7 +722,6 @@
     window.addEventListener('resize',setWrapHeight);
   })();
 
-  /* Wife & I: carousel + audio */
   (() => {
     const slides = [...document.querySelectorAll('#loveCarousel img')];
     if (slides.length) {
@@ -780,49 +735,39 @@
     const audio=document.getElementById('loveAudio'), btn=document.getElementById('playBtn'), icon=document.getElementById('playIcon'), bar=document.getElementById('progress');
     if(audio && btn){
       function fadeIn(audio, duration=1200) {
-  audio.volume = 0;
-  audio.play();
-  const step = 100 / (duration / 50); // every 50ms
-  let vol = 0;
-  const fade = setInterval(()=>{
-    vol = Math.min(1, vol + step/100);
-    audio.volume = vol;
-    if(vol >= 1) clearInterval(fade);
-  }, 50);
-}
-
-function fadeOut(audio, duration=1200) {
-  const step = 100 / (duration / 50);
-  let vol = audio.volume;
-  const fade = setInterval(()=>{
-    vol = Math.max(0, vol - step/100);
-    audio.volume = vol;
-    if(vol <= 0){
-      clearInterval(fade);
-      audio.pause();
-    }
-  }, 50);
-}
-
-btn.addEventListener('click',()=>{
-  if(audio.paused){
-    fadeIn(audio, 1500); // fade in over 1.5s
-    icon.textContent='⏸';
-  } else {
-    fadeOut(audio, 1500); // fade out over 1.5s
-    icon.textContent='▶';
-  }
-});
+        audio.volume = 0;
+        audio.play();
+        const step = 100 / (duration / 50);
+        let vol = 0;
+        const fade = setInterval(()=>{
+          vol = Math.min(1, vol + step/100);
+          audio.volume = vol;
+          if(vol >= 1) clearInterval(fade);
+        }, 50);
+      }
+      function fadeOut(audio, duration=1200) {
+        const step = 100 / (duration / 50);
+        let vol = audio.volume;
+        const fade = setInterval(()=>{
+          vol = Math.max(0, vol - step/100);
+          audio.volume = vol;
+          if(vol <= 0){
+            clearInterval(fade);
+            audio.pause();
+          }
+        }, 50);
+      }
+      btn.addEventListener('click',()=>{
+        if(audio.paused){fadeIn(audio, 1500); icon.textContent='⏸';}
+        else {fadeOut(audio, 1500); icon.textContent='▶';}
+      });
       audio.addEventListener('timeupdate',()=>{ if(audio.duration) bar.style.width=((audio.currentTime/audio.duration)*100)+'%'; });
       audio.addEventListener('ended',()=>{ icon.textContent='▶'; bar.style.width='0%'; });
     }
   })();
 
-  /* IMMERSIVE WORLDS helpers (scoped to #fun) */
   (function(){
     const fun = document.getElementById('fun'); if(!fun) return;
-
-    /* Parallax for worlds */
     const worlds=[...fun.querySelectorAll('.world')];
     function tick(){
       const h=innerHeight;
@@ -835,12 +780,11 @@ btn.addEventListener('click',()=>{
     }
     tick();
 
-    /* Gaming belt duration calc */
     const belt = fun.querySelector('#logoBelt');
     if(belt){
       function setDuration(){
         const halfWidth = belt.scrollWidth / 2;
-        const speed = 130; // px/s
+        const speed = 130;
         const dur = Math.max(8, halfWidth / speed);
         belt.style.setProperty('--dur', dur + 's');
       }
@@ -856,16 +800,6 @@ btn.addEventListener('click',()=>{
     }
   })();
 
-  /* follow-mouse again for spotlight in each scene */
-  document.querySelectorAll('.scene').forEach(sec=>{
-    sec.addEventListener('pointermove', e=>{
-      const r=sec.getBoundingClientRect();
-      sec.style.setProperty('--mx',(e.clientX-r.left)+'px');
-      sec.style.setProperty('--my',(e.clientY-r.top)+'px');
-    });
-  });
-
-  /* chips sparkle */
   document.querySelectorAll('.chip').forEach(ch=>{
     ch.addEventListener('click', ()=>{
       for(let i=0;i<6;i++){
@@ -876,7 +810,6 @@ btn.addEventListener('click',()=>{
     });
   });
 
-  /* year */
   document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>
